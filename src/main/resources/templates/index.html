@@ -1,0 +1,91 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+
+    <title>Gerenciador Empresarial</title>
+
+	<link th:href="@{css/bootstrap.min.css}" href="/public/css/bootstrap.min.css" rel="stylesheet" media="screen"></link>
+		      
+	<link th:href="@{css/sb-admin.css}" href="/public/css/sb-admin.css" rel="stylesheet" media="screen"></link>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Gerenciador Empresarial</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav nav-tabs side-nav" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#home" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-fw fa-dashboard"></i> Principal</a>
+                    </li>
+                    <li role="presentation">
+                    	<a href="#other" aria-controls="other" role="tab" data-toggle="tab">Outro</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+		<div id="page-wrapper">
+			<div class="container-fluid">
+				<!-- Tab panes -->
+				<div class="tab-content">
+					  <div role="tabpanel" class="tab-pane active" id="home" ></div>
+					  <div role="tabpanel" class="tab-pane" id="other" ></div>
+				</div>
+			</div>
+			
+		</div>
+
+	</div>
+
+	<!-- jQuery -->
+	<script th:src="@{js/jquery.js}" src="/public/js/jquery.js" type="application/javascript" ></script>
+	
+	<!-- Bootstrap Core JavaScript -->
+	<script th:src="@{js/bootstrap.min.js}" src="/public/js/bootstrap.min.js" type="application/javascript"></script>
+	
+	<script th:src="@{js/angular.min.js}" src="/public/js/angular.min.js"></script>
+	<script th:src="@{js/ui-bootstrap-tpls-1.3.3.min.js}" src="/public/js/ui-bootstrap-tpls-1.3.3.min.js" type="application/javascript"></script>
+	<script th:src="@{js/app/controller/loginController.js}" src="/public/js/app/controller/loginController.js" type="application/javascript"></script>	
+
+	<script> 
+	    $(function(){
+	      $("#home").load("fragments/home.html");
+	      $("#other").load("fragments/other.html");
+	    });
+   	</script> 
+
+</body>
+
+</html>
