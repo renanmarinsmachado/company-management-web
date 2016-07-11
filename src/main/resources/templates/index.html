@@ -4,6 +4,8 @@
 <head>
 
     <title>Gerenciador Empresarial</title>
+	
+	<meta charset="UTF-8"/>
 
 	<link th:href="@{css/bootstrap.min.css}" href="/public/css/bootstrap.min.css" rel="stylesheet" media="screen"></link>
 		      
@@ -33,7 +35,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <label th:text="${currentUser.name}"></label> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a href="#modalProfile" data-toggle="modal"><i class="fa fa-fw fa-user"></i> Perfil</a>
                         </li>
                         <li class="divider"></li>
                         <li>
@@ -42,14 +44,15 @@
                     </ul>
                 </li>
             </ul>
+            
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav nav-tabs side-nav" role="tablist">
+                <ul class="nav navbar-nav nav-tabs side-nav" role="tablist" style="padding-top: 5px;">
                     <li role="presentation" class="active">
                         <a href="#home" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-fw fa-dashboard"></i> Principal</a>
                     </li>
                     <li role="presentation">
-                    	<a href="#other" aria-controls="other" role="tab" data-toggle="tab">Outro</a>
+                    	<a href="#employee" aria-controls="employee" role="tab" data-toggle="tab">Funcionários</a>
                     </li>
                 </ul>
             </div>
@@ -61,13 +64,41 @@
 				<!-- Tab panes -->
 				<div class="tab-content">
 					  <div role="tabpanel" class="tab-pane active" id="home" ></div>
-					  <div role="tabpanel" class="tab-pane" id="other" ></div>
+					  <div role="tabpanel" class="tab-pane" id="employee" ></div>
 				</div>
 			</div>
 			
 		</div>
 
 	</div>
+
+	<!-- Modal HTML -->
+	<div id="modalProfile" class="modal fade">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	        	<div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Perfil</h4>
+                </div>
+			     <div class="modal-body" style="padding-left: 180px;">
+					<div class="row">
+						<div class=".col-md-4"><label>Nome: <span th:text="${currentUser.name}"></span></label></div>
+						<br/>
+					</div>
+					<div class="row">
+						<div class=".col-md-4"><label>Username: <span th:text="${currentUser.username}"></span></label></div>
+						<br/>
+					</div>
+					<div class="row">
+						<div class=".col-md-4"><label>Perfil: <span th:text="${currentUser.role}"></span></label></div>
+           		 	</div>
+           		 </div>
+           		 <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                 </div>
+           	</div>
+        </div>
+    </div>
 
 	<!-- jQuery -->
 	<script th:src="@{js/jquery.js}" src="/public/js/jquery.js" type="application/javascript" ></script>
@@ -82,7 +113,7 @@
 	<script> 
 	    $(function(){
 	      $("#home").load("fragments/home.html");
-	      $("#other").load("fragments/other.html");
+	      $("#employee").load("fragments/employee.html");
 	    });
    	</script> 
 
