@@ -1,4 +1,4 @@
-package br.com.logatti.tcc.companymanagement.web;
+package br.com.companymanagement.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;

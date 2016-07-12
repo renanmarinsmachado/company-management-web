@@ -1,4 +1,4 @@
-package br.com.logatti.tcc.companymanagement.web.controller;
+package br.com.companymanagement.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.logatti.tcc.companymanagement.web.service.UserService;
+import br.com.companymanagement.web.client.UserClient;
 
 @Controller
 public class LoginController {
 	
 	@Autowired
-	private UserService userService;
+	private UserClient userClient;
 	
 	@RequestMapping("/login")
     public String indexLogin() {
@@ -40,7 +40,7 @@ public class LoginController {
 		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    String username = auth.getName();
-	    modelAndView.addObject("currentUser", userService.getByUsername(username).get());
+	    modelAndView.addObject("currentUser", userClient.getUserByUsername(username));
 	    
         return modelAndView;
     }

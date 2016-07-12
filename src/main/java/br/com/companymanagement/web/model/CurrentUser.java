@@ -1,9 +1,9 @@
-package br.com.logatti.tcc.companymanagement.web.model;
+package br.com.companymanagement.web.model;
 
 import org.springframework.security.core.authority.AuthorityUtils;
 
-import br.com.logatti.tcc.companymanagement.web.entity.User;
-import br.com.logatti.tcc.companymanagement.web.enums.Role;
+import br.com.companymanagement.common.dto.UserDTO;
+import br.com.companymanagement.common.enums.Role;
 
 public class CurrentUser extends org.springframework.security.core.userdetails.User{
 
@@ -12,14 +12,14 @@ public class CurrentUser extends org.springframework.security.core.userdetails.U
 	 */
 	private static final long serialVersionUID = -288817689858787941L;
 	
-	private User user;
+	private UserDTO user;
 
-    public CurrentUser(User user) {
+    public CurrentUser(UserDTO user) {
         super(user.getUsername(), user.getPassword(), AuthorityUtils.createAuthorityList(user.getRole().toString()));
         this.user = user;
     }
 
-    public User getUser() {
+    public UserDTO getUser() {
         return user;
     }
 
