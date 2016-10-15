@@ -1,12 +1,16 @@
 package br.com.companymanagement.web;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
-@SpringBootApplication
+@Configuration
+@ComponentScan(basePackages = { "br.com.companymanagement" })
+@EnableAutoConfiguration
 public class CompanyManagementWebApplication{
 
 	public static void main(String[] args) {

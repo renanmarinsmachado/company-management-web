@@ -6,8 +6,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import br.com.companymanagement.common.client.UserClient;
 import br.com.companymanagement.common.dto.UserDTO;
-import br.com.companymanagement.web.client.UserClient;
 import br.com.companymanagement.web.model.CurrentUser;
 
 @Service
