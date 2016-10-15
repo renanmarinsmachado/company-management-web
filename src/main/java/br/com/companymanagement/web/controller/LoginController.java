@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,4 +54,8 @@ public class LoginController {
 	    }
 	    return "redirect:/login?logout";
 	}
+	
+//	public static void main(String[] args) {
+//		System.out.println(new BCryptPasswordEncoder().encode("admin"));
+//	}
 }
