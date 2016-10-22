@@ -24,7 +24,7 @@ public class CurrentUser extends org.springframework.security.core.userdetails.U
     }
 
     public Long getId() {
-        return user.getId();
+        return user.getCpf();
     }
 
     public Role getRole() {

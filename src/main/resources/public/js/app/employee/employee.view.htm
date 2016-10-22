@@ -1,0 +1,111 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Funcionários
+        </h1>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-lg-12">
+        
+        <div id="content">
+			<div class="row">
+				<div class="panel panel-default panel-main">
+					<div class="panel-heading">Gerenciamento de Funcionários</div>
+					<div class="panel-body">
+						<div class="panel panel-default">
+							<div class="panel-body body-create">
+								
+								<form role="form" method="post" action="">
+									<input type="hidden" class="form-control" id="id" name="id" value="">
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-6">
+												<label for="name">Nome:</label> <input type="text"
+													class="form-control" id="name" name="name" value="">
+											</div>
+											<div class="col-md-6">
+												<label for="username">Username:</label> <input type="email"
+													class="form-control" id="username" name="username" value="">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-4">
+												<label for="cpf">CPF:</label> <input type="text"
+													class="form-control" id="cpf" name="cpf" value="">
+											</div>
+											<div class="col-md-4">
+												<label for="phone">Telefone:</label> <input type="tel"
+													class="form-control" id="phone" name="phone" value="">
+											</div>
+											<div class="col-md-4">
+												<label for="role">Perfil:</label> <select class="form-control"
+													id="role" name=role>
+													<option value="">Selecione</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-3">
+												<label for="password">Senha:</label> <input type="password"
+													class="form-control" id="password" name="password" value="">
+											</div>
+											
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="panel-heading label-create" style="cursor: pointer;">Criar</div>
+							
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<table id="data-table" class="display" cellspacing="0" width="100%">
+									<thead>
+										<tr>
+											<th>CPF</th>
+											<th>Nome</th>
+											<th>Perfil</th>
+											<th>Username</th>
+											<th>Data de Nascimento</th>
+											<th>Salario</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="user in users">
+											<td>{{user.cpf}}</td>
+											<td>{{user.name}}</td>
+											<td>{{user.role}}</td>
+											<td>{{user.username}}</td>
+											<td>{{user.birthdate}}</td>
+											<td>{{user.salary}}</td>
+										</tr>
+									</tbody>
+									<tfoot>
+										<tr>
+											<th>CPF</th>
+											<th>Nome</th>
+											<th>Perfil</th>
+											<th>Username</th>
+											<th>Data de Nascimento</th>
+											<th>Salario</th>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+						</div>
+		
+					</div>
+				</div>
+			</div>
+		</div>
+        
+    </div>
+</div>
