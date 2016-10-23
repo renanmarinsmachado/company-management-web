@@ -13,7 +13,7 @@
         
         <div id="content">
 			<div class="row">
-				<div class="panel panel-default panel-main">
+				<div class="panel panel-primary panel-main">
 					<div class="panel-heading">Gerenciamento de Funcionários</div>
 					<div class="panel-body">
 						<div class="panel panel-default">
@@ -25,11 +25,11 @@
 										<div class="row">
 											<div class="col-md-6">
 												<label for="name">Nome:</label> <input type="text"
-													class="form-control" id="name" name="name" value="">
+													class="form-control" id="name" name="name" ng-model="model.name">
 											</div>
 											<div class="col-md-6">
 												<label for="username">Username:</label> <input type="email"
-													class="form-control" id="username" name="username" value="">
+													class="form-control" id="username" name="username" ng-model="model.username">
 											</div>
 										</div>
 									</div>
@@ -37,16 +37,18 @@
 										<div class="row">
 											<div class="col-md-4">
 												<label for="cpf">CPF:</label> <input type="text"
-													class="form-control" id="cpf" name="cpf" value="">
+													class="form-control" id="cpf" name="cpf" ng-model="model.cpf">
 											</div>
 											<div class="col-md-4">
-												<label for="phone">Telefone:</label> <input type="tel"
-													class="form-control" id="phone" name="phone" value="">
+												<label for="phone">Data da nascimento:</label> <input type="date"
+													class="form-control" id="birthdate" name="birthdate" ng-model="model.birthdate">
 											</div>
 											<div class="col-md-4">
 												<label for="role">Perfil:</label> <select class="form-control"
-													id="role" name=role>
+												id="role" name="role" ng-model="model.role">
 													<option value="">Selecione</option>
+													<option value="ADMIN">Administrador</option>
+													<option value="EMPLOYEE">Funcionário</option>
 												</select>
 											</div>
 										</div>
@@ -54,20 +56,36 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-md-3">
-												<label for="password">Senha:</label> <input type="password"
-													class="form-control" id="password" name="password" value="">
+												<label for="salary">Salário:</label>
+											</div>
+											<div class="col-md-3">
+												<label for="password">Senha:</label>
+											</div>
+											<div class="col-md-6">
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-3">
+												<input type="number"
+													class="form-control" id="salary" name="salary" ng-model="model.salary">
+											</div>
+											<div class="col-md-3">
+												<input type="password"
+													class="form-control" id="password" name="password" ng-model="model.password">
+											</div>
+											<div class="col-md-2 col-md-offset-4">
+												<button type="button" class="btn btn-primary" ng-click="saveUser()">Criar</button>
 											</div>
 											
 										</div>
 									</div>
 								</form>
 							</div>
-							<div class="panel-heading label-create" style="cursor: pointer;">Criar</div>
 							
 						</div>
 						<div class="panel panel-default">
 							<div class="panel-body">
-								<table id="data-table" class="display" cellspacing="0" width="100%">
+								<table id="data-table" datatable="" class="row-border hover display" cellspacing="0" width="100%">
 									<thead>
 										<tr>
 											<th>CPF</th>
@@ -75,7 +93,7 @@
 											<th>Perfil</th>
 											<th>Username</th>
 											<th>Data de Nascimento</th>
-											<th>Salario</th>
+											<th>Salário</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -95,7 +113,7 @@
 											<th>Perfil</th>
 											<th>Username</th>
 											<th>Data de Nascimento</th>
-											<th>Salario</th>
+											<th>Salário</th>
 										</tr>
 									</tfoot>
 								</table>

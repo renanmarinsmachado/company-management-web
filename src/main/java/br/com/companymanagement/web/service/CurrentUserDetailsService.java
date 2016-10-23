@@ -22,7 +22,7 @@ public class CurrentUserDetailsService implements UserDetailsService{
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		 UserDTO userDTO = userClient.getUserByUsername(username);
+		 UserDTO userDTO = userClient.getUsers(username).get(0);
 		 return new CurrentUser(userDTO);
 	}
 

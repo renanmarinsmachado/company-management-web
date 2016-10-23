@@ -40,7 +40,7 @@ public class LoginController {
 		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    String username = auth.getName();
-	    modelAndView.addObject("currentUser", userClient.getUserByUsername(username));
+	    modelAndView.addObject("currentUser", userClient.getUsers(username).get(0));
 	    
         return modelAndView;
     }
