@@ -22,14 +22,6 @@ public class LoginController {
 	
 	@RequestMapping("/login")
     public String indexLogin() {
-		
-//		User user = new User();
-//		user.setUsername("admin@admin.com");
-//		user.setName("Admin");
-//		user.setPassword(new BCryptPasswordEncoder().encode("admin"));
-//		user.setRole(Role.ADMIN);
-//		userService.save(user);
-		
         return "login";
     }
 	

@@ -18,6 +18,21 @@ app.service('employeeService', function($http) {
 		});
 	}
 	
+	this.getUser = function(id) {
+		
+		return new Promise((resolve, reject) => {
+			$http({
+				method : 'GET',
+				url : host+endpoint+'/'+id
+			}).then(function successCallback(response) {
+				resolve(response.data);
+			}, function errorCallback(response) {
+				console.log(response);
+				reject();
+			});
+		});
+	}
+	
 	this.saveUser = function(user) {
 		
 		console.log(user);
@@ -33,12 +48,25 @@ app.service('employeeService', function($http) {
 		});
 	}
 	
-	this.editUser = function(id, attr, newValue) {
+	this.editUser = function(id, map) {
 		
 		return new Promise((resolve, reject) => {
+			
+			var json = '[';
+			map.forEach(function(item, index){
+				json += '{ "op": "add", "path": "/'+item.attr+'", "value": "'+item.value+'" }';
+				
+				if(map[(map.length-1)].attr != map[index].attr)
+					json += ',';
+			});
+			
+			json += ']';
+			
+			console.log(json);
+			
 			$http({
 				method : 'PUT',
-				data: '[{ "op": "replace", "path": "/'+attr+'", "value": "'+newValue+'" }]',
+				data: json,
 				url : host+endpoint+'/'+id
 			}).then(function successCallback(response) {
 				resolve(response.data);

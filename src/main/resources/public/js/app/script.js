@@ -21,5 +21,12 @@ app.config(['$httpProvider', function ($httpProvider) {
 	  $httpProvider.defaults.headers.post['Content-Type'] = 'application/json';
 	  $httpProvider.defaults.headers.put = {};
 	  $httpProvider.defaults.headers.patch = {};
+	  $httpProvider.defaults.headers.delete = {};
 	  delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
+
+app.filter('iif', function () {
+   return function(input, trueValue, falseValue) {
+        return input ? trueValue : falseValue;
+   };
+});
